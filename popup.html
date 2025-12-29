@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Volume Control</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="app-container">
+    
+    <header>
+      <div class="header-left">
+        <h1 id="title-text">Volume Control</h1>
+      </div>
+      <div class="header-right">
+        <button id="lang-toggle" class="icon-btn text-icon" aria-label="Switch Language">
+          <span id="lang-text">EN</span>
+        </button>
+        <button id="theme-toggle" class="icon-btn" aria-label="Toggle Theme">
+          <svg class="icon sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          <svg class="icon moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+      </div>
+    </header>
+
+    <div class="segmented-control">
+      <button id="nav-current" class="segment-btn active">Current</button>
+      <button id="nav-list" class="segment-btn">Tabs</button>
+      <button id="nav-domains" class="segment-btn">Domains</button>
+    </div>
+
+    <main>
+      <section id="section-current" class="view-section">
+        <div class="card main-control">
+          <div class="volume-status">
+            <span class="status-label" id="label-level">Level</span>
+            <span class="status-value"><span id="volume-value">100</span>%</span>
+          </div>
+          
+          <div class="slider-wrapper">
+            <input type="range" id="volume-slider" min="0" max="400" value="100">
+            <div class="slider-ticks">
+              <span>0%</span>
+              <span>100%</span>
+              <span>200%</span>
+              <span>300%</span>
+              <span>400%</span>
+            </div>
+          </div>
+        </div>
+        <button id="reset-btn" class="secondary-btn">Reset to Default</button>
+        
+        <footer>
+          <span class="creator">Developed by NECOTAN</span>
+          <span class="version">Version <span id="app-version"></span></span>
+        </footer>
+      </section>
+
+      <section id="section-list" class="view-section hidden">
+        <div id="audio-list-container" class="scroll-area">
+          <div class="empty-state">
+            <p class="empty-msg">No tabs found</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="section-domains" class="view-section hidden">
+        <div class="add-domain-box">
+          <input type="text" id="domain-input" placeholder="example.com" autocomplete="off">
+          <button id="add-domain-btn">+</button>
+        </div>
+        <div id="domain-list-container" class="scroll-area">
+        </div>
+      </section>
+    </main>
+
+  </div>
+  <script src="i18n.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
